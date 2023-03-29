@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução Aula Java Script</title>
+</head>
+<body>
+    <div>
+        <div>
+            <nav>
+                <!--Criar um menu no top da pagina que; quando clickar levar para o item especifico de cada paragráfo-->
+                <a href="src">Editando o src da imagem</a>
+            </nav>
+        </div>
+        <div>
+            <h1>Primeiro Java Script</h1>
+            <p> Passe o mouse sobre o botão para ver a data e hora do sistema</p>
+            <button onmouseover="document.getElementById('dh').innerHTML = Date ()"
+                    onmouseout="document.getElementById('dh').innerHTML = ''">
+                Veja a hora AQUI!</button>
+            <p id="dh"></p>
+        </div>
+
+        <div>
+            <h2>Outras formas de usar innerHTML</h2>
+            <p id="par1">O conteúdo deste paragrefo será copiado para um p abaixo do botão</p>
+            <button onclick="copiaParagrafo()">
+                Clique aqui para copiar o paragrafo
+            </button>
+            <p id="par2"></p>
+        </div>
+
+        <div id="src">
+            <h2>Editando a fonte de uma imagem</h2>
+            <!--https://www.w3schools.com/js/pic_bulbon.gif-->
+            <button onclick="ligar()">
+                ligue a Luz
+            </button>
+            <img id="luz" src="https://www.w3schools.com/js/pic_bulbon.gif" alt="imagem de uma lampada">
+            <button onclick="desligar()" >
+                Apague a Luz
+            </button>
+        </div>
+        
+        <div>
+            <h2>Editando estilo JS</h2>
+            <p id="pEstilo">
+                O estilo desse paragrafo será alterado com um click do botão abaixo </p>
+            <button onclick="alteraEstilo()">Altere o estilo do paragrafo</button>
+        </div>
+
+        <div>
+            <h2>Ocultar elemento com JS</h2>
+            <label for="texto"Entrada de texto>Entrada de texto</label>
+            <input id="texto" type="text">
+            <button onclick="ocultar()">Ocultar a caixa de texto</button>
+        </div>
+
+        <div>
+            <h2>Exibindo janela de alerta </h2>
+            <p>Ao clicar no botão veja uma mensagem!</p>
+            <button onclick="exibirJanela()">Click para exibir uma janela </button>
+        </div>
+
+        <div>
+            <h2>Reescrevendo o HTML </h2>
+            <p>A função document.write() reescreve a pagina</p>
+            <button onclick="recarregar()">Recarregar Página</button>
+            
+        </div>
+
+    </div>
+    <script>
+        function copiaParagrafo(){
+            var x = document.getElementById('par1').innerHTML;
+            document.getElementById('par2').innerHTML = x;
+        }
+
+        function ligar(){
+            document.getElementById('luz').src = "https://www.w3schools.com/js/pic_bulbon.gif";
+        }
+        function desligar(){
+            document.getElementById('luz').src = "https://www.w3schools.com/js/pic_bulboff.gif";
+        }
+
+        function alteraEstilo(){
+            document.getElementById('pEstilo').style.fontSize = '2rem';
+        }
+
+        function ocultar(){
+
+            let estado = document.getElementById('texto').style.display;
+            if(estado == 'none'){
+                document.getElementById('texto').style.display = 'inline';
+            }else{
+                document.getElementById('texto').style.display = 'none';
+            }
+            
+            //exibir se estiver oculto e vice versa
+
+           
+        }
+
+        function exibirJanela(){
+            window.alert("Olá Visitante!!!");
+        }
+
+        function recarregar(){
+            document.write();
+        }
+
+    </script>
+</body>
+</html>
